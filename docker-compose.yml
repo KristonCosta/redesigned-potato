@@ -18,3 +18,11 @@ services:
     expose: 
       - "6121"
       - "6122"
+  console: 
+    image: apache/flink:latest
+    depends_on: 
+      - jobmanager
+      - taskmanager
+    env_file: .env
+    volumes: 
+      - ./:/app

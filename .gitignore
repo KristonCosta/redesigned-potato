@@ -1,2 +1,4 @@
+*.jar
+.bsp
 *.class
 *.log
