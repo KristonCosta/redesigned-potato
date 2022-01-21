@@ -1,0 +1,20 @@
+version: "3.9"
+services: 
+  jobmanager:
+    image: apache/flink:latest 
+    command: jobmanager
+    env_file: .env
+    ports: 
+      - "8081:8081"
+    expose: 
+      - "6123"
+      - "22"  
+  taskmanager:
+    image: apache/flink:latest 
+    depends_on: 
+      - jobmanager
+    command: taskmanager
+    env_file: .env
+    expose: 
+      - "6121"
+      - "6122"
